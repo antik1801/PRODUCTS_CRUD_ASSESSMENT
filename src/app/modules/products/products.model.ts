@@ -32,6 +32,10 @@ const productsSchema = new Schema<TProducts>({
         },
         required: [true, "Product status is required, ['In Stock' || 'Stock Out'] is required"]
     },
+    productCode:{
+        type: String,
+        default: null
+    },
     is_deleted: {
         type: Boolean,
         default: false

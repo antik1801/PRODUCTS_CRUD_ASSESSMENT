@@ -8,6 +8,7 @@ export type TProducts = {
     discount: string;
     image: string;
     status: TProductsStatus;
+    productCode?: string | null;
     is_deleted?: boolean;
 }
 
