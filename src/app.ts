@@ -4,8 +4,6 @@
 import express, { Request, Response, NextFunction } from "express";
 import cors from "cors";
 import router from "./app/routes";
-import { StudentsRoutes } from "./app/modules/students/student.route";
-import { usersRoutes } from "./app/modules/users/user.route";
 import globalErrorHandler from "./app/middlewares/globalErrorHandler";
 import notFoundRoute from "./app/middlewares/notFound";
 
