@@ -28,9 +28,10 @@ https://github.com/antik1801/PRODUCTS_CRUD_ASSESSMENT
 
 <ul>
     <li>ExpressJS</li>
-    <li>Zod</li>
+    <li>TypeScript</li>
     <li>Mongoose</li>
     <li>Mongodb</li>
+    <li>Zod validation</li>
     <li>SHA-285 Encryption</li>
     <li>Modular pattern</li>
     <li>Vercel</li>
