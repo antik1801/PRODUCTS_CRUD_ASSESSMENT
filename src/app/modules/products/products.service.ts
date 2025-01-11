@@ -39,9 +39,6 @@ const getAllProductsFromDB = async (query: Record<string, unknown>) =>{
 
     productQuery = queryBuilder.search(['name'])
     .filter()
-    .sort()
-    .paginate()
-    .fields()
     .modelQuery;
 
     const products = await productQuery.exec();
@@ -60,9 +57,21 @@ const getAllProductsFromDB = async (query: Record<string, unknown>) =>{
     return result;
 }
 
+const updateProductIntoDB = async (id: string, payload: Partial<TProducts>) =>{
+    const result = await Products.findOneAndUpdate({_id: id}, payload, { new: true } );
+    return result;
+}
+
+
+const deleteProductFromDB = async (id: string) =>{
+    const result = await Products.updateOne({id}, {is_deleted: true});
+    return result;
+}
 
 
 export const productServices = {
     createProductIntoDB,
-    getAllProductsFromDB
+    getAllProductsFromDB,
+    updateProductIntoDB,
+    deleteProductFromDB
 }

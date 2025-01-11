@@ -42,7 +42,18 @@ const createProductValidationSchema = z.object({
 })
 
 const updateProductValidationSchema = z.object({
-    
+  status: z.enum(["Stock Out", "In Stock"] as const, {
+    invalid_type_error: "Product status must be a valid status",
+    required_error: "Product status is required",
+  }).optional(),
+  description: z.string({
+    required_error: "Product description is required",
+    invalid_type_error: "Product description must be a string",
+  }).min(1, "Product description cannot be empty").optional(),
+  discount: z.string({
+    required_error: "Product discount is required",
+    invalid_type_error: "Product discount must be a string",
+  }).regex(/^\d+$/, "Discount must be a numeric value represented as a string").optional(),
 })
 
 

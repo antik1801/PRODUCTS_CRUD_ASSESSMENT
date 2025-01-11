@@ -1,6 +1,7 @@
-# Developer's Word 
+# Developer's Word
+
 <div style="display: flex; align-items: center;">
-    <img src="https://i.ibb.co.com/Zcfr6yN/6sense.png" style="width: 50%; height: auto; margin-right: 5px;" />
+    <img src="https://i.ibb.co.com/Zcfr6yN/6sense.png" style="width: 100%; height: auto; margin-right: 5px;" />
 </div>
 <div>
     <p>Please contact me if you encounter any problems</p>
@@ -11,16 +12,20 @@
     </ul>
 </div>
 
-## Live Link: 
+## Live Link:
+
 ```
 https://6sense-server.vercel.app/
 ```
-## Github Link: 
+
+## Github Link:
+
 ```
-https://github.com/antik1801/Notion-Clone-2.0 
+https://github.com/antik1801/PRODUCTS_CRUD_ASSESSMENT
 ```
 
-## Technology used: 
+## Technology used:
+
 <ul>
     <li>ExpressJS</li>
     <li>Zod</li>
@@ -31,12 +36,16 @@ https://github.com/antik1801/Notion-Clone-2.0
     <li>Vercel</li>
 </ul>
 
-# API and data Models: 
+# API and data Models:
+
 ## [POST]
+
 ```
 https://6sense-server.vercel.app/api/v1/products/create-product
 ```
-## Data: 
+
+## Data:
+
 ```
 {
   "name": "Alpha Sorter",
@@ -44,7 +53,36 @@ https://6sense-server.vercel.app/api/v1/products/create-product
   "discount": "10",
   "image": "https://example.com/images/headphones.jpg",
   "price": 99.99,
+  "category": "gadget",
   "status": "In Stock"
 }
 
+```
+
+## [GET]
+
+```
+https://6sense-server.vercel.app/api/v1/products
+https://6sense-server.vercel.app/api/v1/products?name=example_name
+https://6sense-server.vercel.app/api/v1/products?category=example_category
+```
+
+# [PUT]
+
+```
+https://6sense-server.vercel.app/api/v1/products/ObjectID
+```
+
+## Data Model:
+
+```
+{
+    "discount": "30",
+    "description": "Updated Portable Bluetooth speaker with 10-hour battery life and water resistance",
+    "status": "Stock Out"
+}
+```
+# [DELETE]
+```
+https://6sense-server.vercel.app/api/v1/products/ObjectID
 ```
