@@ -38,6 +38,11 @@ https://github.com/antik1801/PRODUCTS_CRUD_ASSESSMENT
 
 # API and data Models:
 
+# API DOCUMENTATIONS:
+```
+https://documenter.getpostman.com/view/22565658/2sAYQWJtJS
+```
+
 ## [POST]
 
 ```
