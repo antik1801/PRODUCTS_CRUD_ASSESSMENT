@@ -2,6 +2,8 @@ import mongoose from "mongoose"
 import { TProducts } from "./products.interface";
 import { generateProductCode } from "./products.utils";
 import { Products } from "./products.model";
+import QueryBuilder from "../../builder/QueryBuilder";
+// import { productsSearchableFields } from "./products.const";
 
 
 const createProductIntoDB = async (payload: TProducts) =>{
@@ -28,7 +30,24 @@ const createProductIntoDB = async (payload: TProducts) =>{
     }
 }
 
+const getAllProductsFromDB = async (query: Record<string, unknown>) =>{
+
+    console.log("services ", query);
+    let productQuery = Products.find();
+    
+    const queryBuilder = new QueryBuilder(productQuery, query);
+
+    productQuery = queryBuilder.search(['name']).filter().sort().paginate().fields().modelQuery;
+
+    const result = await productQuery.exec();
+
+    return result;
+
+}
+
+
 
 export const productServices = {
-    createProductIntoDB
+    createProductIntoDB,
+    getAllProductsFromDB
 }

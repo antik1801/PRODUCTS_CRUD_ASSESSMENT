@@ -36,10 +36,16 @@ const productsSchema = new Schema<TProducts>({
         type: String,
         default: null
     },
+    category: {
+        type: String,
+        required: [true, "Product category is required"]
+    },
     is_deleted: {
         type: Boolean,
         default: false
     }
+},{
+    timestamps: true
 })
 
 export const Products = model<TProducts>("Products", productsSchema);

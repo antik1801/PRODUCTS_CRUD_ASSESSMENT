@@ -67,7 +67,7 @@ export const generateProductCode = async (payload: TProducts) =>{
 
 
     const productCodeWithHash = `${shortHash}-${productCodeWithoutHash}`;
-    console.log(productCodeWithHash);
+    // console.log(productCodeWithHash);
     return productCodeWithHash;
     
 }

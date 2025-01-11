@@ -10,6 +10,11 @@ const createProductValidationSchema = z.object({
         required_error: "Product description is required",
         invalid_type_error: "Product description must be a string",
       }).min(1, "Product description cannot be empty"),
+
+      category: z.string({
+        required_error: "Product category is required",
+        invalid_type_error: "Product category must be a string",
+      }).min(1, "Product category cannot be empty"),
       
       discount: z.string({
         required_error: "Product discount is required",
