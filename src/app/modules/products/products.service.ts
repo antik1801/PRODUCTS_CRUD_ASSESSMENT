@@ -37,12 +37,27 @@ const getAllProductsFromDB = async (query: Record<string, unknown>) =>{
     
     const queryBuilder = new QueryBuilder(productQuery, query);
 
-    productQuery = queryBuilder.search(['name']).filter().sort().paginate().fields().modelQuery;
+    productQuery = queryBuilder.search(['name'])
+    .filter()
+    .sort()
+    .paginate()
+    .fields()
+    .modelQuery;
 
-    const result = await productQuery.exec();
+    const products = await productQuery.exec();
+
+    const result = products.map(product => {
+        const discountPercentage = parseFloat(product.discount) || 0; // Default to 0 if no discount
+        const finalPrice = product.price - (product.price * discountPercentage) / 100;
+    
+        return {
+          ...product.toObject(), // Convert the Mongoose document to a plain object
+          originalPrice: product.price,
+          finalPrice: parseFloat(finalPrice.toFixed(2)), // Round to 2 decimal places
+        };
+      });
 
     return result;
-
 }
 
 
